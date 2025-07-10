@@ -9,7 +9,7 @@ function HomePage() {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/products");
+      const res = await fetch("https://product-store-mj1l.onrender.com/api/products");
       const data = await res.json();
       if (data.success && Array.isArray(data.data)) {
         setProducts(data.data);
@@ -22,7 +22,7 @@ function HomePage() {
   };
 
   const handleUpdate = (id, update) => {
-    fetch(`http://localhost:5000/api/products/${id}`, {
+    fetch(`https://product-store-mj1l.onrender.com/api/products${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(update),
@@ -51,7 +51,7 @@ function HomePage() {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${id}`, {
+      const res = await fetch(`https://product-store-mj1l.onrender.com/api/products${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
